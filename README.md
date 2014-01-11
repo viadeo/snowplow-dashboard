@@ -12,13 +12,27 @@ Hot !
 
 ### Group Charts in beautiful dashboards
 
+Example using Haml
+```haml
+.row
+    %h3 Bounce rate by day
+    = line_chart RecipesBasic.bounce_rate_by_day
+.row
+    .col-md-6
+        %h3 Avg Visit Duration by day
+        = column_chart RecipesBasic.avg_visit_duration_by_day
+    .col-md-6
+        %h3 Engagement Visit duration
+        = pie_chart RecipesBasic.engagement_visit_duration
+```
+
 ![Basic Dashboard](sample.png?raw=true "Optional title")
 
 ### Use out-of-the-box Snowplow Recipes
 
-Snowplow provides dozen common [Web analytics recipes](http://snowplowanalytics.com/analytics/basic-recipes.html).
+Snowplow provides dozen of standard [Web analytics recipes](http://snowplowanalytics.com/analytics/basic-recipes.html).
 
-We provide three model wrapper `RecipesBasic`, `RecipesCustomer`, `RecipesCatalog`. Just call the method that you want, and choose the appropriate chart representation.
+We provide three Models `RecipesBasic`, `RecipesCustomer`, `RecipesCatalog`. Just call the method that you want, and choose the appropriate chart representation.
 
 ```ruby
 line_chart RecipesBasic.pages_per_visit
