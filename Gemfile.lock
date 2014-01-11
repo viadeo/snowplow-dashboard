@@ -1,3 +1,17 @@
+GIT
+  remote: git://github.com/aamine/activerecord4-redshift-adapter.git
+  revision: 8211c28f737d73cdc72e4d9b88513b020371e895
+  specs:
+    activerecord4-redshift-adapter (0.1.0)
+      activerecord (>= 4.0.0)
+      pg
+
+GIT
+  remote: git://github.com/viadeo/rorschart.git
+  revision: 46bc85d6c3143390ad35880a338ce44152a24933
+  specs:
+    rorschart (0.4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -10,6 +24,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    actionpack-action_caching (1.1.1)
+      actionpack (>= 4.0.0, < 5.0)
     activemodel (4.0.2)
       activesupport (= 4.0.2)
       builder (~> 3.1.0)
@@ -27,6 +43,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
+    bootstrap-sass-rails (3.0.3.0)
+      railties (>= 3.1.0)
+      sass-rails (>= 3.1.0)
     builder (3.1.4)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -52,6 +71,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
+    pg (0.17.1)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -64,6 +84,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.2)
       sprockets-rails (~> 2.0.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.0.2)
       actionpack (= 4.0.2)
       activesupport (= 4.0.2)
@@ -108,10 +133,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-action_caching
+  activerecord4-redshift-adapter!
+  bootstrap-sass-rails
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  pg
   rails (= 4.0.2)
+  rails_12factor
+  rorschart!
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3

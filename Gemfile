@@ -43,3 +43,26 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+#
+# Require gem for snowplow-dashboard
+#
+
+# Google Charts easly from ActiveRecord
+gem "rorschart", github: 'viadeo/rorschart'
+
+# Amazon Redshift adapter
+gem 'activerecord4-redshift-adapter', github: 'aamine/activerecord4-redshift-adapter'
+
+# Use Bootstrap for dashboard
+gem 'bootstrap-sass-rails'
+
+# Use Postgresql for local development
+gem 'pg', group: :development
+
+# Caching for chart
+gem 'actionpack-action_caching'
+
+# Assets support for heroku deployment
+gem 'rails_12factor', group: :production
