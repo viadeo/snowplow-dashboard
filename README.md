@@ -14,6 +14,28 @@ Hot !
 
 ![Basic Dashboard](sample.png?raw=true "Optional title")
 
+### Use out-of-the-box Snowplow Recipes
+
+Snowplow provides dozen common [Web analytics recipes](http://snowplowanalytics.com/analytics/basic-recipes.html).
+
+Just call them and your appropriate chart representation.
+
+```ruby
+line_chart RecipesBasic.pages_per_visit
+table_chart RecipesBasic.behavior_frequency
+pie_chart RecipesBasic.technology_browser
+line_chart RecipesBasic.uniques_and_visits_by_day
+```
+
+### And many more
+
+Features to document:
+* Build your analytics DSL
+* A/B testing
+* Asynchronous Ajax loading
+* Caching
+* Heroku ready
+* Queries from raw SQL
 
 ## License
 
