@@ -18,7 +18,7 @@ Hot !
 
 Snowplow provides dozen common [Web analytics recipes](http://snowplowanalytics.com/analytics/basic-recipes.html).
 
-Just call them and your appropriate chart representation.
+We provide three model wrapper `RecipesBasic`, `RecipesCustomer`, `RecipesCatalog`. Just call the method that you want, and choose the appropriate chart representation.
 
 ```ruby
 line_chart RecipesBasic.pages_per_visit
