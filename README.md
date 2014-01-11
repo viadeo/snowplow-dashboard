@@ -26,7 +26,7 @@ Example using Haml
         = pie_chart RecipesBasic.engagement_visit_duration
 ```
 
-![Basic Dashboard](sample.png?raw=true "Optional title")
+![Basic Dashboard](sample-dashboard.png?raw=true)
 
 ### Use out-of-the-box Snowplow Recipes
 
