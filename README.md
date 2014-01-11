@@ -41,7 +41,7 @@ pie_chart RecipesBasic.technology_browser
 line_chart RecipesBasic.uniques_and_visits_by_day
 ```
 
-### Build your custom query
+### Build your custom queries
 
 ```ruby
 Event.group_per_day.count_visitors.where(page_urlpath: "/step/profile").during_last 30.days
@@ -50,12 +50,12 @@ Event.group_per_day.count_visitors.where(page_urlpath: "/step/profile").during_l
 ### And many more
 
 Features to document:
-* Build your analytics DSL
-* A/B testing
+* Queries from raw SQL
+* Queries from your organization Analytics DSL
 * Asynchronous Ajax loading
 * Caching
 * Heroku ready
-* Queries from raw SQL
+* A/B testing Methodology
 
 ## License
 
