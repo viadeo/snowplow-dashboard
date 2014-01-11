@@ -27,6 +27,12 @@ pie_chart RecipesBasic.technology_browser
 line_chart RecipesBasic.uniques_and_visits_by_day
 ```
 
+### Build your custom query
+
+```ruby
+Event.group_per_day.count_visitors.where(page_urlpath: "/step/profile").during_last 30.days
+```
+
 ### And many more
 
 Features to document:
