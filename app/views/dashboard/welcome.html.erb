@@ -1,0 +1,5 @@
+<% title "Welcome on SnowPlow Dashboard", "The missing front-end for SnowPlow." %>
+
+<%=
+	"Last event in RedShift: " + distance_of_time_in_words_to_now(Event.last_update)
+%>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "//www.google.com/jsapi" %>
+  <%= javascript_include_tag "rorschart" %>
+  <%= stylesheet_link_tag "rorschart" %>  
+  <%= stylesheet_link_tag "bootstrap.doc" %>  
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-2">
+				<div class="page-header">
+					<h1><%= yield(:title) %></h1>
+					<p class="lead"><%= yield(:description) %></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">
+				<div class="bs-sidebar hidden-print affix" role="complementary">
+					<ul class="nav bs-sidenav">
+						<li><a href="/dashboard/welcome">Welcome</a></li>              
+						<li><a href="/dashboard/recipes_basic">Recipes Basic</a></li>
+          </ul>
+				</div>
+			</div>
+			<div class="col-md-10" role="main">
+				<%= yield %>
+			</div>
+		</div>
+	</div>		
+</body>
+</html>
