@@ -9,7 +9,7 @@ class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 	end
 
 	def self.cache_key_for(dashboard_name, chart_name)
-		"#{dashboard_name}_dashboard::chart_name"
+		"#{dashboard_name}_dashboard::#{chart_name}"
 	end
 
 private
