@@ -3,3 +3,8 @@
 <%=
 	"Last event in RedShift: " + distance_of_time_in_words_to_now(Event.last_update)
 %>
+
+<h3>Events by Day</h3>
+<%=
+	column_chart "/dashboard/charts/welcome/events_count_per_day"
+%>

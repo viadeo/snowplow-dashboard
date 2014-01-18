@@ -2,8 +2,6 @@ class DashboardController < ApplicationController
 
 	include Rorschart::Helper
 
-	caches_action :chart
-
 	def index
 	end
 
@@ -21,8 +19,15 @@ class DashboardController < ApplicationController
 		dashboard_name = params[:dashboard_name]
 		chart_name = params[:chart_name]
 
-		chart = "#{dashboard_name.camelize}Dashboard".constantize.new
-	  	render json: to_chart(chart.send(chart_name))
+		cache = Rails.cache.fetch(UpdateChartJob.cache_key_for(dashboard_name, chart_name))
+
+		if (cache.blank?)
+			Delayed::Job.enqueue UpdateChartJob.new(dashboard_name, chart_name)
+	  		render :json => "Background Processing. Please refresh manualy. Polling not yet implemented.".to_json, :status => 500
+	  	else
+	  		render json: to_chart(cache)
+	  	end
+
 	rescue => e
 		render :json => e.message, :status => 500
 	end

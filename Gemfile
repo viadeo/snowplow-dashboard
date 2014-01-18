@@ -66,3 +66,7 @@ gem 'actionpack-action_caching'
 
 # Assets support for heroku deployment
 gem 'rails_12factor', group: :production
+
+# Use delayed_job for background processing
+gem 'delayed_job_active_record'
+
