@@ -71,9 +71,8 @@ group :production do
 
 	# Use Heroku Memcache
 	gem 'dalli'
-	gem 'memcachier'
 
 	# Assets support for heroku deployment
 	gem 'rails_12factor'
-	
+
 end
