@@ -54,6 +54,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    dalli (2.7.0)
     delayed_job (4.0.0)
       activesupport (>= 3.0, < 4.1)
     delayed_job_active_record (4.0.0)
@@ -73,6 +74,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
@@ -142,9 +144,11 @@ DEPENDENCIES
   activerecord4-redshift-adapter!
   bootstrap-sass-rails
   coffee-rails (~> 4.0.0)
+  dalli
   delayed_job_active_record
   jbuilder (~> 1.2)
   jquery-rails
+  memcachier
   pg
   rails (= 4.0.2)
   rails_12factor

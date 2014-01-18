@@ -47,7 +47,7 @@ end
 
 #
 # Require gem for snowplow-dashboard
-#
+####################################
 
 # Google Charts easly from ActiveRecord
 gem "rorschart", github: 'viadeo/rorschart'
@@ -64,9 +64,16 @@ gem 'pg', group: :development
 # Caching for chart
 gem 'actionpack-action_caching'
 
-# Assets support for heroku deployment
-gem 'rails_12factor', group: :production
-
 # Use delayed_job for background processing
 gem 'delayed_job_active_record'
 
+group :production do
+
+	# Use Heroku Memcache
+	gem 'dalli'
+	gem 'memcachier'
+
+	# Assets support for heroku deployment
+	gem 'rails_12factor'
+	
+end
