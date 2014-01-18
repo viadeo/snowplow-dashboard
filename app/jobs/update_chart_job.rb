@@ -1,10 +1,6 @@
 class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 
 	def perform
-		puts "sleep... long job"
-		sleep 5
-		puts "ok."
-
 		cache_key = UpdateChartJob.cache_key_for(dashboard_name, chart_name)
 		data = call_chart_method_from_string(dashboard_name, chart_name)
 
