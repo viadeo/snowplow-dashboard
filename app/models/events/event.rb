@@ -1,5 +1,9 @@
 class Event < ActiveRecord::Base
 
+	# REDSHIFT_DATABASE_URL must exist on heroku
+	# heroku config:set DATABASE_URL="redshift://<redshit_user>:<redshift_password>@<amazon_redshift_host>:5439/snowplow?sslca=config/redshift-ssl-ca-cert.pem" -a <heroku_app_name>
+	establish_connection(ENV['REDSHIFT_DATABASE_URL'] ||= Rails.env)
+
 	scope :group_by_date, 		-> { group('collector_tstamp::date') }
 	scope :order_by_date, 		-> { order('collector_tstamp::date') }
 	scope :select_date,   		-> { select('collector_tstamp::date as "Day"')}
