@@ -7,6 +7,8 @@ SnowplowDashboard::Application.routes.draw do
   get "dashboard/welcome"
   get "dashboard/:dashboard_name", to: 'dashboard#show'
   get "dashboard/charts/:dashboard_name/:chart_name", to: 'dashboard#chart'
+
+  get "/delayed_job" => DelayedJobWeb, :anchor => false
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

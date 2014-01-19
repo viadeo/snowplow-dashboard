@@ -67,6 +67,9 @@ gem 'actionpack-action_caching'
 # Use delayed_job for background processing
 gem 'delayed_job_active_record'
 
+# Web admin interface for delayed_job
+gem 'delayed_job_web'
+
 group :production do
 
 	# Use Heroku Memcache
