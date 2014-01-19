@@ -50,7 +50,7 @@ end
 ####################################
 
 # Google Charts easly from ActiveRecord
-gem "rorschart", github: 'viadeo/rorschart'
+gem "rorschart", github: 'viadeo/rorschart', :branch => 'master'
 
 # Amazon Redshift adapter
 gem 'activerecord4-redshift-adapter', github: 'aamine/activerecord4-redshift-adapter'

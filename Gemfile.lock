@@ -8,9 +8,10 @@ GIT
 
 GIT
   remote: git://github.com/viadeo/rorschart.git
-  revision: fb37100d4c3f907301bc93fd1a3cf9c45c9dd9fa
+  revision: 9228b71859c605fa8c78f7fa3cc6a386b55107c9
+  branch: master
   specs:
-    rorschart (0.5.0)
+    rorschart (0.5.1)
 
 GEM
   remote: https://rubygems.org/
