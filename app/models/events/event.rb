@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
 
+	# Use local postgresql instance for speed-up development, or the real amazon redshift database if REDSHIFT_DATABASE_URL is present
 	# REDSHIFT_DATABASE_URL must exist on heroku
 	# heroku config:set DATABASE_URL="redshift://<redshit_user>:<redshift_password>@<amazon_redshift_host>:5439/snowplow?sslca=config/redshift-ssl-ca-cert.pem" -a <heroku_app_name>
 	establish_connection(ENV['REDSHIFT_DATABASE_URL'] ||= Rails.env)
