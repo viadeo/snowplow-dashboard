@@ -1,4 +1,7 @@
-class RecipesBasicDashboard
+class RecipesBasicDashboard < ChartDashboard
+
+	refresh :default, every: 1.week, at: 'Sunday 22:42'
+	refresh :uniques_and_visits_by_day, :pageviews_by_day, :bounce_rate_by_day, :avg_visit_duration_by_day, :new_vs_returning, every: 1.day, at: ['13:00', '06:00']
 
 	def pages_per_visit
 		Event.from_sql("select * from recipes_basic.pages_per_visit")

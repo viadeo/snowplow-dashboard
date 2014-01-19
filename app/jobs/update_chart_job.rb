@@ -5,8 +5,6 @@ class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 	def perform
 		cache_key = UpdateChartJob.cache_key_for(dashboard_name, chart_name)
 		data = call_chart_method_from_string(dashboard_name, chart_name)
-
-		# to implement: custom cache expiration management by chart
 		Rails.cache.write(cache_key, to_chart(data))
 	end
 

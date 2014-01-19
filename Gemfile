@@ -70,6 +70,9 @@ gem 'delayed_job_active_record'
 # Web admin interface for delayed_job
 gem 'delayed_job_web'
 
+# Use clockwork to periodicly update chart in background
+gem 'clockwork'
+
 group :production do
 
 	# Use Heroku Memcache
