@@ -20,17 +20,16 @@ class DashboardController < ApplicationController
 		chart_name = params[:chart_name]
 
 		cache_key = UpdateChartJob.cache_key_for(dashboard_name, chart_name)
+		cached_data = Rails.cache.fetch(cache_key)
 
-		cache = Rails.cache.fetch(cache_key)
-
-		if (cache.blank?)
+		if (cached_data.blank?)
 			Rails.cache.write(cache_key, :processing)
 			Delayed::Job.enqueue UpdateChartJob.new(dashboard_name, chart_name)
 			render :json => "Background Processing. Please refresh manualy. Polling not yet implemented.".to_json, :status => 202
-	  	elsif (cache == :processing)
+	  	elsif (cached_data == :processing)
 	  		render :json => "Still processing...".to_json, :status => 202
 	  	else
-	  		render json: to_chart(cache)
+	  		render json: cached_data
 	  	end
 
 	rescue => e
