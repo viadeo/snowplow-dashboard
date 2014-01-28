@@ -1,7 +1,7 @@
 <% title "Welcome on SnowPlow Dashboard", "The missing front-end for SnowPlow." %>
 
 <%=
-	"Last event in RedShift: " + distance_of_time_in_words_to_now(Event.last_update)
+	table_chart "/dashboard/charts/welcome/last_event_date"
 %>
 
 <h3>Events by Day</h3>

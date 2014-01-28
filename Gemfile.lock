@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: git://github.com/viadeo/rorschart.git
-  revision: 9228b71859c605fa8c78f7fa3cc6a386b55107c9
+  revision: 68d39a8ad2f071f6ea40cd3265b910a8fb3bdb9c
   branch: master
   specs:
-    rorschart (0.5.1)
+    rorschart (0.5.2)
 
 GEM
   remote: https://rubygems.org/
@@ -118,7 +118,7 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
-    sass (3.2.13)
+    sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
