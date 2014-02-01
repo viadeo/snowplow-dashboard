@@ -4,8 +4,13 @@ class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 
 	def perform
 		cache_key = UpdateChartJob.cache_key_for(dashboard_name, chart_name)
-		data = call_chart_method_from_string(dashboard_name, chart_name)
-		Rails.cache.write(cache_key, to_chart(data))
+		
+		begin
+			data = call_chart_method_from_string(dashboard_name, chart_name)
+			Rails.cache.write(cache_key, {status: :success, data: to_chart(data)})
+		rescue Exception => e 
+			Rails.cache.write(cache_key, {status: :error, message: e.message})
+		end
 	end
 
 	def self.cache_key_for(dashboard_name, chart_name)
