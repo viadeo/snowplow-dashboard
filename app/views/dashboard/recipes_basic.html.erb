@@ -2,7 +2,7 @@
 
 <h3>Uniques and Visits by day</h3>
 <%= 
-	line_chart "/dashboard/charts/recipes_basic/uniques_and_visits_by_day", {
+	line_chart "/dashboard/recipes_basic/uniques_and_visits_by_day", {
 		title: "uniques_and_visits_by_day",
 		isStacked: false
 	}
@@ -10,7 +10,7 @@
 
 <h3>Pagesviews</h3>
 <%= 
-	area_chart "/dashboard/charts/recipes_basic/pageviews_by_day", {
+	area_chart "/dashboard/recipes_basic/pageviews_by_day", {
 		title: "pageviews_by_day"
 	}
 %>
@@ -18,7 +18,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<%= 
-			table_chart "/dashboard/charts/recipes_basic/engagement_pageviews_per_visit", {
+			table_chart "/dashboard/recipes_basic/engagement_pageviews_per_visit", {
 				title: "engagement_pageviews_per_visit",
 				page: 'enable',
 				pageSize: 10
@@ -27,7 +27,7 @@
 	</div>
 	<div class="col-md-6">
 		<%= 
-			table_chart "/dashboard/charts/recipes_basic/pages_per_visit", {
+			table_chart "/dashboard/recipes_basic/pages_per_visit", {
 				title: "pages_per_visit",
 				page: 'enable',
 				pageSize: 10
@@ -42,21 +42,21 @@
 <div class="row">
 	<div class="col-md-4">
 		<%= 
-			pie_chart "/dashboard/charts/recipes_basic/technology_browser", {
+			pie_chart "/dashboard/recipes_basic/technology_browser", {
 				title: "technology_browser"
 			}
 		%>
 	</div>
 	<div class="col-md-4">
 		<%= 
-			pie_chart "/dashboard/charts/recipes_basic/technology_mobile", {
+			pie_chart "/dashboard/recipes_basic/technology_mobile", {
 				title: "technology_mobile"
 			}
 		%>
 	</div>
 	<div class="col-md-4">
 		<%= 
-			pie_chart "/dashboard/charts/recipes_basic/technology_os", {
+			pie_chart "/dashboard/recipes_basic/technology_os", {
 				title: "technology_os"
 			}
 		%>
@@ -66,20 +66,20 @@
 
 <!-- <h3>behavior_frequency</h3>
 <%= 
-	# pie_chart "/dashboard/charts/recipes_basic/behavior_frequency", {
+	# pie_chart "/dashboard/recipes_basic/behavior_frequency", {
 	# }
 %>
  -->
 <h3>Behavior Recency</h3>
 <%= 
-	bar_chart "/dashboard/charts/recipes_basic/behavior_recency", {
+	bar_chart "/dashboard/recipes_basic/behavior_recency", {
 		title: "behavior_recency"
 	}
 %>
 
 <h3>Bounce rate by day</h3>
 <%= 
-	line_chart "/dashboard/charts/recipes_basic/bounce_rate_by_day"
+	line_chart "/dashboard/recipes_basic/bounce_rate_by_day"
 %>
 
 
@@ -87,13 +87,13 @@
 	<div class="col-md-6">
 		<h3>Avg Visit Duration by day</h3>
 		<%= 
-			column_chart "/dashboard/charts/recipes_basic/avg_visit_duration_by_day"
+			column_chart "/dashboard/recipes_basic/avg_visit_duration_by_day"
 		%>
 	</div>
 	<div class="col-md-6">
 		<h3>Engagement Visit duration</h3>
 		<%= 
-			pie_chart "/dashboard/charts/recipes_basic/engagement_visit_duration"
+			pie_chart "/dashboard/recipes_basic/engagement_visit_duration"
 		%>	
 	</div>
 </div>
@@ -101,21 +101,21 @@
 
 <!-- <h3>Event by day</h3>
 <%= 
-	# table_chart "/dashboard/charts/recipes_basic/events_by_day", {
+	# table_chart "/dashboard/recipes_basic/events_by_day", {
 	# 	title: "events_by_day"
 	# }
 %>
  -->
 <!-- 
 <%= 
-	# table_chart "/dashboard/charts/recipes_basic/fraction_new_visits_by_day", {
+	# table_chart "/dashboard/recipes_basic/fraction_new_visits_by_day", {
 	# 	title: "fraction_new_visits_by_day"
 	# }
 %>
  -->
 <h3>New vs Returning</h3>
 <%= 
-	line_chart "/dashboard/charts/recipes_basic/new_vs_returning", {
+	line_chart "/dashboard/recipes_basic/new_vs_returning", {
 		title: "new_vs_returning",
 		min: 0
 	}
@@ -124,7 +124,7 @@
 <h3>Visitor by Language</h3>
 
 <%= 
-	pie_chart "/dashboard/charts/recipes_basic/visitors_by_language",  {
+	pie_chart "/dashboard/recipes_basic/visitors_by_language",  {
 		title: "Visitors by Language"
 	}
 %>
@@ -132,7 +132,7 @@
 <h3>Visitor by Country</h3>
 
 <%= 
-	geo_chart "/dashboard/charts/recipes_basic/visits_by_country", {
+	geo_chart "/dashboard/recipes_basic/visits_by_country", {
 		height: "600px"
 	}
 %>

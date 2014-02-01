@@ -6,7 +6,7 @@ SnowplowDashboard::Application.routes.draw do
 
   get "dashboard/welcome"
   get "dashboard/:dashboard_name", to: 'dashboard#show'
-  get "dashboard/charts/:dashboard_name/:chart_name", to: 'dashboard#chart'
+  get "dashboard/:dashboard_name/:chart_name", to: 'chart#show'
 
   get "/delayed_job" => DelayedJobWeb, :anchor => false
   
