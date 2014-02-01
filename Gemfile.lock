@@ -71,8 +71,13 @@ GEM
       rdoc
       sinatra (>= 0.9.2)
       tilt (= 1.4.1)
+    dotenv (0.9.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    ffi (1.9.3)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -84,6 +89,10 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    listen (1.0.3)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      rb-kqueue (>= 0.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -116,8 +125,15 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.1)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.3)
+      ffi (>= 0.5.0)
+    rb-kqueue (0.2.0)
+      ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    rerun (0.8.2)
+      listen (~> 1.0.3)
     sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -166,11 +182,14 @@ DEPENDENCIES
   dalli
   delayed_job_active_record
   delayed_job_web
+  foreman (>= 0.63.0)
   jbuilder (~> 1.2)
   jquery-rails
   pg
   rails (= 4.0.2)
   rails_12factor
+  rb-fsevent
+  rerun
   rorschart!
   sass-rails (~> 4.0.0)
   sdoc

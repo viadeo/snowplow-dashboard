@@ -73,6 +73,13 @@ gem 'delayed_job_web'
 # Use clockwork to periodicly update chart in background
 gem 'clockwork'
 
+# Use rerun for autorestart foreman when need
+gem 'rerun', group: :development
+gem 'rb-fsevent', group: :development
+
+# Use at least v 0.63.0 of foreman to be compliant with rereun and ruby 2
+gem 'foreman', ">=0.63.0", group: :development
+
 group :production do
 
 	# Use Heroku Memcache
