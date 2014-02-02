@@ -7,9 +7,9 @@ class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 		
 		begin
 			data = call_chart_method_from_string(dashboard_name, chart_name)
-			Rails.cache.write(cache_key, {status: :success, data: to_chart(data)})
+			Rails.cache.write(cache_key, {status: :success, data: to_chart(data), last_update: DateTime.now})
 		rescue Exception => e 
-			Rails.cache.write(cache_key, {status: :error, message: e.message})
+			Rails.cache.write(cache_key, {status: :error, message: e.message, last_update: DateTime.now})
 		end
 	end
 
