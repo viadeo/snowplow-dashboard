@@ -1,12 +1,10 @@
 <% title "Welcome on SnowPlow Dashboard", "The missing front-end for SnowPlow." %>
 
+<%= toolbar :welcome, :last_event_date %>
 <%= table_chart chart_data_path(:welcome, :last_event_date) %>
-<%= chart_info_tooltip :welcome, :last_event_date %>
-<%= link_to "Refresh", chart_clear_cache_path(:welcome, :last_event_date), :remote => true %>
 
 
 <h3>Events by Day</h3>
 
-<%= chart_info_tooltip :welcome, :events_count_per_day %>
-<%= link_to "Refresh", chart_clear_cache_path(:welcome, :events_count_per_day), :remote => true %>
+<%= toolbar :welcome, :events_count_per_day %>
 <%= column_chart chart_data_path(:welcome, :events_count_per_day) %>

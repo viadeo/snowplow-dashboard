@@ -1,0 +1,10 @@
+<div class="btn-toolbar" role="toolbar">
+	<div class="btn-group pull-right">
+		<a class="btn btn-default btn-xs" rel='tooltip' data-title="<%= chart.to_s.titleize %>" data-info-url="<%=chart_info_path(dashboard, chart)%>"><span class="glyphicon glyphicon-info-sign"></span></a>
+		<%= link_to content_tag(:span, nil, :class => "glyphicon glyphicon-refresh"),
+					chart_clear_cache_path(dashboard, chart),
+					:remote => true,
+					:class => "btn btn-default btn-xs"
+		%>
+	</div>
+</div>

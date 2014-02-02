@@ -9,6 +9,8 @@ $(document).on('ready page:load', function () {
           return el.popover({
             content: response,
             title: el.attr('title'),
+            placement: 'left',
+            container: 'body',
             html: true
           }).popover('show');
         };
