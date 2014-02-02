@@ -1,5 +1,5 @@
 // Popup Chart Info
-$(document).ready(function () {
+$(document).on('ready page:load', function () {
   $("[rel=tooltip]").each(function (index) {
     return $(this).hover(
       function () { // Hover handlerIn
