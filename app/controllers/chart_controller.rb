@@ -26,6 +26,11 @@ class ChartController < ApplicationController
 		render json: ApplicationController.helpers.chart_info(@cached_chart[:last_update], ChartDashboard.refresh_policy_for_chart(@dashboard_name, @chart_name)).to_json
 	end
 
+	def clear_cache
+		Rails.cache.delete(@cache_key)		
+		render :nothing => true
+	end
+
 	private
 
 	def retrieve_chart_params

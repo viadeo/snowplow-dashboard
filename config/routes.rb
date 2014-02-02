@@ -4,11 +4,15 @@ SnowplowDashboard::Application.routes.draw do
 
   root 'dashboard#welcome'
 
+  #dashboard
   get "dashboard/welcome"
   get "dashboard/:dashboard_name", to: 'dashboard#show'
-  
+
+  # chart   
   get "dashboard/:dashboard_name/:chart_name", to: 'chart#show', as: :chart_data
   get "dashboard/:dashboard_name/:chart_name/info", to: 'chart#info', as: :chart_info
+  get "dashboard/:dashboard_name/:chart_name/clear", to: 'chart#clear_cache', as: :chart_clear_cache
+
 
   get "/delayed_job" => DelayedJobWeb, :anchor => false
   
