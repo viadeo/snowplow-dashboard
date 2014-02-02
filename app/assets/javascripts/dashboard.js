@@ -7,7 +7,7 @@ $(document).ready(function () {
         el = $(this);
         callback = function (response) {
           return el.popover({
-            content: response.last_update,
+            content: response,
             title: el.attr('title'),
             html: true
           }).popover('show');

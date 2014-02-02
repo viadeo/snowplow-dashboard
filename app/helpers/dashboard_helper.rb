@@ -6,12 +6,35 @@ module DashboardHelper
 	end
 
 	def chart_info_tooltip(dashboard, chart)
-		chart_info_url = chart_info_path(:welcome, :events_count_per_day)
+		chart_info_url = chart_info_path(dashboard, chart)
 		title = chart.to_s.titleize
 		"<i class='glyphicon glyphicon-info-sign' rel='tooltip' data-title='#{title}' data-info-url='#{chart_info_url}'></i>".html_safe
 	end
 
+	def chart_info(last_update_time, refresh_policy)
+		format_info_last_update(last_update_time) + " and will be refreshed " + format_info_refresh_policy(refresh_policy) + "."
+	end
+
+
+private
+
 	def format_info_last_update(last_update_time)
 		"Chart updated about <b>#{distance_of_time_in_words_to_now(last_update_time)}</b> ago".html_safe
 	end
+
+	def format_info_refresh_policy(refresh_policy)
+		refresh_policy_str = distance_of_time_in_words(refresh_policy[:every]).gsub('about', '')
+		str = "every <b>#{refresh_policy_str}</b>"
+		str += " at <b>#{format_at(refresh_policy[:at])}</b>" if !refresh_policy[:at].blank?
+		return str.html_safe
+	end
+
+	def format_at(at_hours_policy)
+		if at_hours_policy.is_a? Enumerable
+			at_hours_policy.join " and "
+		else
+			at_hours_policy.to_s
+		end
+	end
+
 end

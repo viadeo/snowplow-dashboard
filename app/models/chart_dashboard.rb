@@ -29,6 +29,11 @@ class ChartDashboard
       @@refresh_plan
     end
 
+    def self.refresh_policy_for_chart(dashboard_name, chart_name)
+      chart_class_name = "#{dashboard_name.camelize}Dashboard".constantize
+      chart_class_name.refresh_plan[chart_class_name.name][chart_name.to_sym]
+    end
+
   private
 
     def self.define_default_for_all_charts(dashboard_class, default_options)

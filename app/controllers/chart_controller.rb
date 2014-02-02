@@ -23,9 +23,7 @@ class ChartController < ApplicationController
 	end
 
 	def info
-		render json: {
-			last_update: ApplicationController.helpers.format_info_last_update(@cached_chart[:last_update])
-		}
+		render json: ApplicationController.helpers.chart_info(@cached_chart[:last_update], ChartDashboard.refresh_policy_for_chart(@dashboard_name, @chart_name)).to_json
 	end
 
 	private
