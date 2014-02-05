@@ -1,5 +1,3 @@
-repo initialization in progress.
-
 # Snowplow-dashboard
 
 Snowplow-dashboard that lets you build beautiful dashboards over your Snowplow Redshift Database, in one line of Ruby. Based on [Rorschart](https://github.com/viadeo/rorschart).
