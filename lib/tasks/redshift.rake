@@ -3,6 +3,10 @@ namespace :redshift do
   require "redshift_event" if ENV['REDSHIFT_DATABASE_URL']
   require "sandbox_event" if ENV['DATABASE_URL']
   
+  # use activerecord-import for bulk import in postgres, but only for the Sandbox adapter
+  require "activerecord-import/base"
+  ActiveRecord::Import.require_adapter('postgresql')
+
   namespace :sandbox do
 
     desc "Clean all events in the Sandbox database"
@@ -21,15 +25,24 @@ namespace :redshift do
     task :update => :environment do
       puts "Counting events before Sandbox update..."
       puts "#{SandboxEvent.count} events in Sandbox"
-      puts "#{RedshiftEvent.count} events in Redshift"
 
-      print "Transfering 1000 events from yesterday..."
-      
-      RedshiftEvent.where(collector_tstamp: (Time.now.midnight - 1.day)..Time.now.midnight).limit(1000).each { |event|
-        SandboxEvent.new(event.attributes).save
-      }
+      puts "Transfering 1000 events per day for last 10 days from Redshift to Sandbox (Can takes several minutes)..."
+      (Date.today - 10.day..Date.today).each do |date|
+
+        print "Retrieving 1000 events from Redshift for #{date}..."
+        events = RedshiftEvent.where(collector_tstamp: (date.to_datetime)..date.to_datetime + 1.day).limit(1000).collect { |e|
+          SandboxEvent.new(e.attributes)
+        }
+        puts " Done."
+        print "Saving Events to Sandbox..."
+        SandboxEvent.import events
+        puts " Done."
+      end
 
       puts "Done."
+      puts "Counting events after Sandbox update..."
+      puts "#{SandboxEvent.count} events in Sandbox"
+
 
     end
 
