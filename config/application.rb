@@ -20,8 +20,9 @@ module SnowplowDashboard
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.autoload_paths += %W(
+      #{config.root}/app/charts/_lib
       #{config.root}/app/charts/jobs
-      #{config.root}/app/charts/models
+      #{config.root}/app/charts/models      
     )        
   end
 end
