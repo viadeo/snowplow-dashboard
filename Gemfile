@@ -79,6 +79,9 @@ gem 'foreman', ">=0.63.0", group: :development
 # User activerecord-import for bulk database import
 gem 'activerecord-import', :require => false
 
+# Use schema_plus for database view management in migration
+gem 'schema_plus'
+
 group :production do
 
 	# Use Heroku Memcache
