@@ -5,7 +5,6 @@ SnowplowDashboard::Application.routes.draw do
   root 'dashboard#welcome'
 
   #dashboard
-  get "dashboard/welcome"
   get "dashboard/:dashboard_name", to: 'dashboard#show'
 
   # chart   
