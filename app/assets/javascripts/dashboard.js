@@ -21,5 +21,9 @@ $(document).on('ready page:load', function () {
       }
     );
   });
-});
 
+  $("[rel=refresh]").bind('ajax:complete', function () {
+    location.reload();
+  });
+
+});

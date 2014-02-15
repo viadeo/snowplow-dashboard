@@ -4,7 +4,8 @@
 		<%= link_to content_tag(:span, nil, :class => "glyphicon glyphicon-refresh"),
 					chart_clear_cache_path(dashboard, chart),
 					:remote => true,
-					:class => "btn btn-default btn-xs"
+					:class => "btn btn-default btn-xs",
+					:rel => 'refresh'
 		%>
 	</div>
 </div>
