@@ -22,6 +22,7 @@ private
 	end
 
 	def format_info_refresh_policy(refresh_policy)
+		return "manually only" if refresh_policy.blank?
 		refresh_policy_str = distance_of_time_in_words(refresh_policy[:every]).gsub('about', '')
 		str = "every <b>#{refresh_policy_str}</b>"
 		str += " at <b>#{format_at(refresh_policy[:at])}</b>" if !refresh_policy[:at].blank?
