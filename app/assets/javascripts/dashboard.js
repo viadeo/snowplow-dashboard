@@ -1,3 +1,5 @@
+/*jslint browser:true */
+
 // Popup Chart Info
 $(document).on('ready page:load', function () {
   $("[rel=tooltip]").each(function (index) {
