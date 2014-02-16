@@ -1,4 +1,4 @@
-class RecipesBasicDashboard < ChartDashboard
+class RecipesBasicJob < DashboardJob
 
 	refresh :default, every: 1.week, at: 'Sunday 22:42'
 	

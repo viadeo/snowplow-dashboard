@@ -1,4 +1,4 @@
-class WelcomeDashboard < ChartDashboard
+class WelcomeJob < DashboardJob
 
 	refresh :last_event_date, every: 10.minutes
 	refresh :events_count_per_day, every: 1.hour

@@ -1,4 +1,4 @@
-class ChartDashboard
+class DashboardJob
 
 	#This implementation deeply sucks. Need a refactoring to support :refresh definition with shared static hash.
 
@@ -30,7 +30,7 @@ class ChartDashboard
     end
 
     def self.refresh_policy_for_chart(dashboard_name, chart_name)
-      chart_class_name = "#{dashboard_name.camelize}Dashboard".constantize
+      chart_class_name = "#{dashboard_name.camelize}Job".constantize
       chart_class_name.refresh_plan[chart_class_name.name][chart_name.to_sym]
     end
 
