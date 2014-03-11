@@ -7,17 +7,17 @@ require_relative "../config/environment"
 module Clockwork
 
   # Load dashboards definition
-  charts_path = Rails.root.join('app', 'models', 'charts',)
-  Dir[File.join(charts_path, '**', '/*_dashboard.rb')].each { |chart|
+  charts_path = Rails.root.join('app', 'charts', 'jobs')
+  Dir[File.join(charts_path, '**', '/*_job.rb')].each { |chart|
     require(chart)
   }
 
   # Roughly print refresh plan
-  puts ChartDashboard.refresh_plan
+  puts DashboardJob.refresh_plan
 
   # Add a clock for each defined refresh
-  ChartDashboard.refresh_plan.each { |dashboard|
-    dashboard_name = dashboard[0].underscore.gsub('_dashboard', '')
+  DashboardJob.refresh_plan.each { |dashboard|
+    dashboard_name = dashboard[0].underscore.gsub('_job', '')
     dashboard[1].each { |chart|
       chart_name = chart[0]
       options = chart[1]
