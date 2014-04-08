@@ -2,7 +2,14 @@ class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 
 	include Rorschart::Helper
 
+	def enqueue(job)
+		if !(existing = already_in_queue? job.handler).nil?
+			existing.delete
+		end
+	end
+
 	def perform
+		puts "performing..."
 		cache_key = UpdateChartJob.cache_key_for(dashboard_name, chart_name)
 		
 		begin
@@ -23,5 +30,9 @@ private
 		chart = "#{dashboard_name.camelize}Job".constantize.new
 		chart.send(chart_name)
 	end
+
+	def already_in_queue?(handler)
+	    Delayed::Job.where(['handler = ? and failed_at is null', handler]).first
+  	end
 
 end
