@@ -9,7 +9,6 @@ class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 	end
 
 	def perform
-		puts "performing..."
 		cache_key = UpdateChartJob.cache_key_for(dashboard_name, chart_name)
 		
 		begin
