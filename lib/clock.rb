@@ -23,7 +23,10 @@ module Clockwork
       options = chart[1]
 
       every(options[:every], "#{dashboard_name}.#{chart_name}", options) do
-        Delayed::Job.enqueue UpdateChartJob.new(dashboard_name, chart_name)
+        # Drop all scheduled jobs during first 60 sec to prevent massive jobs running after a redeploy.
+        if (Time.new - Rails.application.config.starttime).to_i > 60
+          Delayed::Job.enqueue UpdateChartJob.new(dashboard_name, chart_name)
+        end        
       end
     }
   }

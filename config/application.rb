@@ -23,6 +23,9 @@ module SnowplowDashboard
       #{config.root}/app/charts/_lib
       #{config.root}/app/charts/jobs
       #{config.root}/app/charts/models      
-    )        
+    )
+
+    config.starttime = Time.new
+    
   end
 end
