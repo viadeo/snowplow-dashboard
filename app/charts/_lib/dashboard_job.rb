@@ -15,7 +15,6 @@ class DashboardJob
     end
 
     def self.refresh_plan
-      
       @@refresh_plan.each { |dashboard|
         dashboard_class = dashboard[0]
         charts = dashboard[1]
