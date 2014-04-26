@@ -9,40 +9,10 @@ namespace :redshift do
 
   namespace :sandbox do
 
-    desc "Clean all events in the Sandbox database"
-    task :clean => :environment do
-      puts "Clean all Events in the Sandbox database..."
-      SandboxEvent.delete_all
-    end
-
     desc "Count events in the Sandbox database"
     task :count => :environment do
       puts "Counting events..."
       puts "#{SandboxEvent.count} events in the sandbox database"
-    end
-
-    desc "Update Sandbox from Redshift about 500-1500 events per day for last 7 days"
-    task :update => :environment do
-      puts "Counting events before Sandbox update..."
-      puts "#{SandboxEvent.count} events in Sandbox"
-
-      puts "Transfering events for last 10 days from Redshift to Sandbox (Can takes several minutes)..."
-      (Date.today - 10.day..Date.today).each do |date|
-
-        random_events_count = Random.new.rand 500..1500
-
-        print "Retrieving #{random_events_count} events from Redshift for #{date}..."
-        events = RedshiftEvent.where(collector_tstamp: (date.to_datetime)..date.to_datetime + 1.day).limit(random_events_count).collect { |e|
-          SandboxEvent.new(e.attributes)
-        }
-        puts " Done."; print "Saving Events to Sandbox..."
-        SandboxEvent.import events
-        puts " Done."
-      end
-
-      puts "Done."
-      puts "Counting events after Sandbox update..."
-      puts "#{SandboxEvent.count} events in Sandbox"
     end
 
   end

@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208234512) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140426145632) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -28,7 +25,22 @@ ActiveRecord::Schema.define(version: 20140208234512) do
     t.string   "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["priority", "run_at"], :name => "delayed_jobs_priority"
   end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+
+  create_table "job_stats", force: true do |t|
+    t.string   "dashboard"
+    t.string   "chart"
+    t.datetime "started_at"
+    t.integer  "duration",         limit: 8
+    t.integer  "waiting_duration", limit: 8
+    t.integer  "integer",          limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_stats", ["dashboard", "chart"], name: "index_job_stats_on_dashboard_and_chart"
+  add_index "job_stats", ["started_at"], name: "index_job_stats_on_started_at"
 
 end

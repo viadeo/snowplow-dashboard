@@ -5,15 +5,26 @@
 #   gem 'sqlite3'
 # development:
 
-development:
-  adapter: postgresql
-  encoding: utf8
-  database: snowplow
+# You can define here the redshift database that will be used for local development.
+# It could be your Production Redshift database - but it will be slow.
+# It will be better for you to setup a sandbox redshift database with partial events
+redshift_sandbox:
+  adapter: redshift
+  host: 
+  port: 5439
   schema_search_path: atomic
-  pool: 5
-  username: snowplow_dashboard
+  username: read_only
   password: 
-  timeout: 5000  
+  database: 
+  encoding: utf8
+  timeout: 5000
+  pool: 5
+
+development:
+  adapter: sqlite3
+  database: db/dev.sqlite3
+  pool: 5
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,6 +40,6 @@ production:
 #
 # You need to set-up 2 databases connections:
 # 1) Your amazon snowplow Redshift by adding a REDSHIFT_DATABASE_URL env var:
-#    heroku config:set DATABASE_URL="redshift://<redshit_user>:<redshift_password>@<amazon_redshift_host>:5439/snowplow?sslca=config/redshift-ssl-ca-cert.pem" -a <heroku_app_name>
+#    heroku config:set DATAREDSHIFT_DATABASE_URLBASE_URL="redshift://<redshit_user>:<redshift_password>@<amazon_redshift_host>:5439/snowplow?sslca=config/redshift-ssl-ca-cert.pem" -a <heroku_app_name>
 # 2) A standard Postgresql instance for background jobs management
 # 
