@@ -20,8 +20,8 @@ class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 	end
 
 	def after(job)
-		running_duration = ((Time.now - @job_starttime).to_f * 1000.0).to_i
-		waiting_duration = ((@job_starttime - job.run_at).to_f * 1000.0).to_i
+		running_duration = ((Time.now - @job_starttime).to_f).to_i
+		waiting_duration = ((@job_starttime - job.run_at).to_f).to_i
 		JobStat.create(dashboard: dashboard_name, chart: chart_name, started_at: job.run_at, duration: running_duration, waiting_duration: waiting_duration)
 	end
 
