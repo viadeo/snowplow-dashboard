@@ -1,11 +1,28 @@
+class Time
+  def to_ms
+    (self.to_f * 1000.0).to_i
+  end
+end
+
 class UpdateChartJob < Struct.new(:dashboard_name, :chart_name)
 
 	include Rorschart::Helper
+	include ActionView::Helpers::DateHelper	
 
 	def enqueue(job)
 		if !(existing = already_in_queue? job.handler).nil?
 			existing.delete
 		end
+	end
+
+	def before(job)
+		@job_starttime = Time.now
+	end
+
+	def after(job)
+		running_duration = ((Time.now - @job_starttime).to_f * 1000.0).to_i
+		waiting_duration = ((@job_starttime - job.run_at).to_f * 1000.0).to_i
+		JobStat.create(dashboard: dashboard_name, chart: chart_name, started_at: job.run_at, duration: running_duration, waiting_duration: waiting_duration)
 	end
 
 	def perform
