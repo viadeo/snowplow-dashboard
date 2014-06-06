@@ -10,6 +10,11 @@ Snowplow-dashboard that lets you build beautiful dashboards over your Snowplow R
 
 Hot !
 
+## Getting Started
+* [Setup guide for local development](https://github.com/viadeo/viadeo-snowplow/wiki/Installation-guide-for-local-development)
+* [Develop your first analytic dashboard in less than 5 min](https://github.com/viadeo/viadeo-snowplow/wiki/Develop-your-first-analytic-dashboard-in-less-than-5-min)
+
+
 ### Group Charts in beautiful dashboards
 
 Example using Haml and Bootstrap
