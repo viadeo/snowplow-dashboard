@@ -79,6 +79,9 @@ gem 'foreman', ">=0.63.0", group: :development
 # User activerecord-import for bulk database import
 gem 'activerecord-import', :require => false
 
+# Support server side javascript on all environement
+gem 'therubyracer'
+
 group :production do
 
 	# Use Heroku Memcache
