@@ -1,6 +1,6 @@
 # Snowplow-dashboard
 
-Snowplow-dashboard that lets you build beautiful dashboards over your Snowplow Redshift Database, in one line of Ruby. Based on [Rorschart](https://github.com/viadeo/rorschart).
+Snowplow-dashboard that lets you build beautiful dashboards over your [Snowplow](http://snowplowanalytics.com) Redshift Database, in one line of Ruby. Based on [Rorschart](https://github.com/viadeo/rorschart).
 
 ```ruby
 <%= pie_chart Event.group(:br_family).count %>
@@ -14,6 +14,8 @@ Hot !
 * [Setup guide for local development](https://github.com/viadeo/snowplow-dashboard/wiki/Installation-guide-for-local-development)
 * [Develop your first analytic dashboard in less than 5 min](https://github.com/viadeosnowplow-dashboard/wiki/Develop-your-first-analytic-dashboard-in-less-than-5-min)
 
+
+## Overview
 
 ### Group Charts in beautiful dashboards
 
