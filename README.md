@@ -12,7 +12,7 @@ Hot !
 
 ## Getting Started
 * [Setup guide for local development](https://github.com/viadeo/snowplow-dashboard/wiki/Installation-guide-for-local-development)
-* [Develop your first analytic dashboard in less than 5 min](https://github.com/viadeosnowplow-dashboard/wiki/Develop-your-first-analytic-dashboard-in-less-than-5-min)
+* [Develop your first analytic dashboard in less than 5 min](https://github.com/viadeo/snowplow-dashboard/wiki/Develop-your-first-analytic-dashboard-in-less-than-5-min)
 
 
 ## Overview
