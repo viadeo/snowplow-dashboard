@@ -76,6 +76,9 @@ gem 'clockwork'
 # Use forman explicitly
 gem 'foreman', ">=0.63.0", group: :development
 
+# Use rerun to restart worker jobs on change during development
+gem 'rerun', group: :development
+
 # User activerecord-import for bulk database import
 gem 'activerecord-import', :require => false
 
